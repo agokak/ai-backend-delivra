@@ -1,11 +1,6 @@
 import { Hono } from 'hono'
-import { streamText as honoStream, stream } from 'hono/streaming';
-import { handle } from 'hono/vercel';
-import { CoreMessage, streamObject } from 'ai';
-import { openai } from '@ai-sdk/openai';
 import { cors } from 'hono/cors';
-import { z } from 'zod';
-import { zValidator } from '@hono/zod-validator';
+import { serve } from '@hono/node-server'
 import template from './template';
 
 const app = new Hono<{ Bindings: { SERVER_API_KEY: string } }>();
@@ -38,7 +33,9 @@ app.use('/api/*', cors({
 
 app.route('/api/template', template);
 
-export default {
-  port: 1807,
+serve({
   fetch: app.fetch,
-}
+  port: 1807
+}, (info) => {
+  console.log(`Server is running on http://localhost:${info.port}`)
+})
