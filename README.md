@@ -1,5 +1,6 @@
 # AI Email Template Design Assistant Backend
 
+
 ## TL;DR
 
 This Bun-based backend uses an LLM (OpenAI's `gpt-4o-mini` via Vercel AI SDK) to help users design HTML email templates. It takes conversation history and current email HTML, then returns chat responses and optionally updated HTML. The main goal is to power a new, dedicated UI for AI-assisted email template generation.
