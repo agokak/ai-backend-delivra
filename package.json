@@ -1,9 +1,9 @@
 {
   "name": "AI",
   "scripts": {
-    "dev": "tsx watch src/index.ts",
-    "build": "tsc",
-    "start": "node dist/index.js"
+    "dev": "bun run --hot src/index.ts",
+    "start": "npx tsx src/index.ts"
+
   },
   "dependencies": {
     "@ai-sdk/google": "^1.2.11",
@@ -17,7 +17,6 @@
     "zod": "^3.24.2"
   },
   "devDependencies": {
-    "@types/node": "^20.14.9",
-    "typescript": "^5.5.2"
+    "@types/bun": "latest"
   }
 }
